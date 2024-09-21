@@ -93,3 +93,39 @@ body {
     font-size: 0.8em;
   }
   
+  .hero-image{
+    background-image: url('images/hidden-gem.jpeg');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-image h1, .hero-image p{
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 0;
+  }
+
+  #main-content {
+    padding: 50px 0;
+  }
+
+  .results {
+    margin-top: 20px;
+  }
+
+  

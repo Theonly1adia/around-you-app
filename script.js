@@ -8,11 +8,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Your Foursquare API key
-const API_KEY = 'fsq3a3ryesJMI+SuVHjliCO8aUsTNJXLFT6IxhhwYyocypY=';
+const button = document.querySelector("#findButton"); // Correct selector
+
+button.addEventListener("click", function() {
+    let apiKey = localStorage.getItem("apiKey");
+
+    if (!apiKey) {
+        apiKey = prompt("Enter API Key:");
+        if (apiKey) {
+            localStorage.setItem("apiKey", apiKey);
+        } else {
+            alert("API Key is required to proceed.");
+            return;
+        }
+    }
+
+    searchHiddenGems(apiKey); // Pass the API key directly to the search function
+});
 
 // Function to search for quirky/weird places using Foursquare Places API
-function searchHiddenGems() {
+function searchHiddenGems(apiKey) {
     const location = document.getElementById('locationInput').value;
 
     if (!location) {
@@ -25,11 +40,11 @@ function searchHiddenGems() {
     // Foursquare API URL
     const url = `https://api.foursquare.com/v3/places/search?query=hidden+gem&near=${location}&categories=13003,13065,10000&limit=10`;
 
-    // Fetch data from Foursquare
+    // Fetch data from Foursquare using API key from localStorage
     fetch(url, {
         headers: {
             'Accept': 'application/json',
-            'Authorization': API_KEY
+            'Authorization': apiKey
         }
     })
     .then(response => response.json())
@@ -61,9 +76,5 @@ function displayPlaces(places) {
         placeCard.appendChild(placeName);
 
         resultsContainer.appendChild(placeCard);
-
     });
 }
-
-document.getElementById('findButtton').addEventListener('click', searchHiddenGems);
-       
