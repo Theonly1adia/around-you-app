@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+<<<<<<< HEAD
 const button = document.querySelector("#findButton"); // Correct selector
 
 button.addEventListener("click", function() {
@@ -25,6 +26,10 @@ button.addEventListener("click", function() {
 
     searchHiddenGems(apiKey); // Pass the API key directly to the search function
 });
+=======
+// Your Foursquare API key
+const API_KEY = 'key';
+>>>>>>> f483c83de5cf28d3a32e8d0fe6003774ccb4f1ed
 
 // Function to search for quirky/weird places using Foursquare Places API
 function searchHiddenGems(apiKey) {
