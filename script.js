@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Your Foursquare API key
-const API_KEY = 'fsq3a3ryesJMI+SuVHjliCO8aUsTNJXLFT6IxhhwYyocypY=';
+const API_KEY = 'key';
 
 // Function to search for quirky/weird places using Foursquare Places API
 function searchHiddenGems() {
